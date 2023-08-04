@@ -13,7 +13,7 @@ public class login {
     private String contra;
     static final String db_URL="jdbc:mysql://localhost/POO2";
     static final String usser="root";
-    static final String pass="root_bas3";
+    static final String pass="pc2rcee";
     static final String query="SELECT * from Usuarios";
     private static boolean data = false;
     public login(){
@@ -23,16 +23,19 @@ public class login {
                 Usuario = USSERTXT.getText();
                 contra = new String(PASSTXT.getPassword());
                 coneccion(Usuario, contra);
-                JFrame frame = (JFrame) SwingUtilities.getWindowAncestor(root);
-                frame.setVisible(false);
 
-                JFrame usserFrame = new JFrame("SECCION");
-                sesion usserventana = new sesion();
-                usserventana.usertxt.setText(Usuario);
-                usserFrame.setContentPane(usserventana.root);
-                usserFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-                usserFrame.pack();
-                usserFrame.setVisible(true);
+                if(data == false) {
+                    JFrame frame = (JFrame) SwingUtilities.getWindowAncestor(root);
+                    frame.setVisible(false);
+
+                    JFrame usserFrame = new JFrame("SECCION");
+                    sesion usserventana = new sesion();
+                    usserventana.usertxt.setText(Usuario);
+                    usserFrame.setContentPane(usserventana.root);
+                    usserFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+                    usserFrame.pack();
+                    usserFrame.setVisible(true);
+                }
             }
         });
         ELIMINARButton.addActionListener(new ActionListener() {
